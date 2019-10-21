@@ -78,7 +78,6 @@ lazy val `full-pocket-api` = (project in file("api"))
       circe("core"),
       circe("generic"),
       circe("generic-extras"),
-      circe("shapes"),
       tapir("core"),
       tapir("json-circe"),
       tapir("openapi-docs"),

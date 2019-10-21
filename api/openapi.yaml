@@ -6,6 +6,14 @@ info:
 host: esp-egw6i7r6ya-ew.a.run.app
 schemes:
   - https
+securityDefinitions:
+  google_id_token:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    x-google-issuer: "https://accounts.google.com"
+security:
+  - google_id_token: []
 consumes:
   - application/json
 produces:
