@@ -1,0 +1,56 @@
+swagger: '2.0'
+info:
+  title: Full Pocket
+  description: Full Pocket API
+  version: 1.0.0
+host: esp-egw6i7r6ya-ew.a.run.app
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /ingest:
+    post:
+      summary: Ingest new event into the system
+      operationId: postIngest
+      x-google-backend:
+        address: https://europe-west1-grounded-cider-254518.cloudfunctions.net/ingestFunction
+      parameters:
+      - name: event
+        in: body
+        required: true
+        schema:
+          type: object
+          required:
+          - time
+          - sourceId
+          - content
+          properties:
+            time:
+              type: string
+              format: date-time
+            sourceId:
+              type: string
+            sourceAddress:
+              type: string
+            content:
+              type: string
+      responses:
+        '200':
+          description: OK if event ingestion successful
+          schema:
+            type: string
+        '400':
+          description: Error
+          schema:
+            type: object
+            required:
+            - type
+            - error
+            properties:
+              type:
+                type: string
+              error:
+                type: string
