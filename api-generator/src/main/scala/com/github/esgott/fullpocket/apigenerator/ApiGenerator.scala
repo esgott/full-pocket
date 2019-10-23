@@ -1,4 +1,4 @@
-package com.github.esgott.fullpocket.api
+package com.github.esgott.fullpocket.apigenerator
 
 /**
 * Unfortunately, neither Google Cloud supports OpenAPI 3.0, nor Tapir supports
